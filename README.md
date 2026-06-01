@@ -87,12 +87,6 @@ react-agent-from-scratch/
 └── README.md
 ```
 
-## 面试讲解要点
 
-- **ReAct 形式化定义**：扩展动作空间 Â = A ∪ L，L 是语言空间（thought），thought 不改变环境只更新上下文
-- **为什么要 stop**：不加 stop，LLM 会一口气把 Observation 也编出来（幻觉），后续推理全建立在假数据上
-- **手写 vs LangGraph**：手写理解原理；生产用 LangGraph 拿 checkpoint / HITL / 可视化 / trace（见配套仓库）
-
-## 许可
 
 MIT
