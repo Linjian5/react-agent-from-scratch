@@ -16,6 +16,14 @@ from openai import OpenAI
 
 from tools import TOOL_REGISTRY, ToolError
 
+# 强制 stdout/stderr 用 UTF-8，避免 Windows GBK 终端无法显示 ✅ / °C 等字符
+try:
+    sys.stdin.reconfigure(encoding="utf-8")
+    sys.stdout.reconfigure(encoding="utf-8")
+    sys.stderr.reconfigure(encoding="utf-8")
+except (AttributeError, OSError):
+    pass  # 老版本 Python 或非 TTY 环境，无所谓
+
 load_dotenv()
 
 API_KEY = os.getenv("DEEPSEEK_API_KEY") or os.getenv("OPENAI_API_KEY")
